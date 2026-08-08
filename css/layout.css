@@ -1,8 +1,9 @@
 .section { width: min(100%, var(--max)); margin-inline: auto; padding: var(--section-y) var(--gutter); }
 .section--narrow { max-width: 1100px; }
 .section--center { text-align: center; display: grid; justify-items: center; }
-.hero { min-height: 94vh; display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: clamp(40px, 6vw, 96px); align-items: center; padding-top: 128px; }
-.hero-copy { padding-top: 48px; }
+.hero { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: clamp(40px, 6vw, 96px); align-items: center; padding-top: 120px; }
+.hero-copy { padding-top: 0; }
+.hero-media { align-self: end; }
 .hero-lead { max-width: 520px; font-size: clamp(1.05rem, 1.7vw, 1.4rem); }
 .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin: 36px 0 48px; }
 .hero-meta { font-size: .88rem; opacity: .68; }
@@ -11,17 +12,24 @@
 .manifesto h2 { margin-bottom: 16px; }
 .display-quote { max-width: 980px; }
 .manifesto-copy { max-width: 580px; margin: 0; font-size: 1.12rem; }
-.menu-preview, .people, .location { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(48px, 8vw, 120px); align-items: center; }
-.menu-panel { max-width: 620px; }
-.origin-story { display: grid; gap: clamp(32px, 3vw, 48px); padding-top: clamp(32px, 3vw, 48px); }
-.origin-intro { max-width: 800px; }
+.people, .location { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(48px, 8vw, 120px); align-items: center; }
+.menu-preview { max-width: 1280px; display: grid; gap: clamp(40px, 5vw, 64px); padding-top: clamp(48px, 5vw, 72px); padding-bottom: 32px; }
+.menu-intro { display: grid; justify-items: center; text-align: center; }
+.menu-panel { max-width: 840px; }
+.menu-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 6vw, 80px); }
+.menu-column { display: grid; align-content: start; }
+.menu-footer { display: grid; justify-items: start; gap: 0; }
+.origin-story { display: grid; gap: clamp(24px, 2vw, 32px); padding-top: clamp(32px, 3vw, 48px); }
+.origin-intro { max-width: 900px; justify-self: center; text-align: center; }
 .origin-intro h2 { margin-bottom: 0; }
 .origin-stories { display: grid; gap: clamp(64px, 8vw, 120px); }
 .story-row { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .75fr); gap: clamp(48px, 7vw, 112px); align-items: center; }
 .story-row--right { grid-template-columns: minmax(300px, .75fr) minmax(0, 1.15fr); }
 .story-copy { max-width: 520px; }
-.wine-section { max-width: none; width: 100%; background: var(--wine); color: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(56px, 10vw, 160px); align-items: center; padding-left: max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter))); padding-right: max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter))); }
+.hero-copy, .menu-preview > *, .people > *, .location > *, .story-row > * { min-width: 0; }
+.wine-section { max-width: none; width: 100%; background: var(--wine); color: var(--cream); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(56px, 10vw, 160px); align-items: center; padding-left: max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter))); padding-right: max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter))); }
 .wine-copy { max-width: 650px; }
+.wine-section > * { min-width: 0; }
 .proof { max-width: none; width: 100%; display: grid; justify-items: center; text-align: center; }
 .proof-grid { width: min(100%, 960px); margin-top: 64px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid rgba(241,235,221,.25); }
 .proof-grid > div { padding: 36px 0; display: grid; justify-items: center; gap: 8px; border-bottom: 1px solid rgba(241,235,221,.25); }
@@ -36,13 +44,13 @@
 .site-footer { padding: 64px var(--gutter) 28px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: var(--max); margin-inline: auto; }
 .footer-links { display: grid; gap: 8px; justify-self: end; text-align: right; }
 .concept-note { grid-column: 1 / -1; padding-top: 36px; border-top: 1px solid var(--line); font-size: .78rem; opacity: .58; }
-@media (max-width: 900px) {
-  .hero, .menu-preview, .people, .location, .wine-section, .story-row, .story-row--right { grid-template-columns: 1fr; }
-  .hero { min-height: auto; padding-top: 112px; }
+@media (max-width: 1024px) {
+  .hero, .people, .location, .wine-section, .story-row, .story-row--right { grid-template-columns: 1fr; }
+  .hero { padding-top: 112px; }
   .hero-media { order: 2; }
   .manifesto-copy { margin-left: 0; }
-  .manifesto { padding-top: clamp(24px, 7vw, 36px); padding-bottom: clamp(24px, 7vw, 36px); }
-  .origin-story { gap: clamp(24px, 7vw, 32px); padding-top: clamp(24px, 7vw, 36px); }
+  .manifesto { padding-top: clamp(24px, 7vw, 36px); padding-bottom: clamp(24px, 5vw, 32px); }
+  .origin-story { gap: clamp(24px, 7vw, 32px); padding-top: clamp(24px, 5vw, 32px); }
   .story-row--right .story-copy { order: 2; }
   .story-row--right figure { order: 1; }
   .wine-section { padding-left: var(--gutter); padding-right: var(--gutter); }
@@ -51,4 +59,14 @@
   .map-link { grid-column: auto; }
   .site-footer { grid-template-columns: 1fr; }
   .footer-links { justify-self: start; text-align: left; }
+}
+@media (max-width: 680px) {
+  .menu-preview { gap: 32px; padding-top: 48px; padding-bottom: 24px; }
+  .menu-list { display: flex; flex-direction: column; gap: 0; }
+  .menu-column { display: contents; }
+  .menu-group--starters { order: 1; }
+  .menu-group--mains { order: 2; }
+  .menu-group--cheese { order: 3; }
+  .menu-group--desserts { order: 4; }
+  .menu-group--mains { padding-top: 24px; }
 }

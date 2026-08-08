@@ -38,7 +38,10 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
 const wineSection = document.querySelector('[data-wine-section]');
 const wineWord = document.querySelector('[data-wine-word]');
 const wineTitle = document.querySelector('#wine-title');
-if (wineSection && wineWord && !reduceMotion && 'IntersectionObserver' in window) {
+if (wineWord && reduceMotion) {
+  wineWord.classList.add('is-divin');
+  wineTitle?.setAttribute('aria-label', 'Divin');
+} else if (wineSection && wineWord && 'IntersectionObserver' in window) {
   let isInView = false;
   let animationTimer;
   const resetWineWord = () => {
